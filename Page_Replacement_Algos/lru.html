@@ -1,0 +1,228 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>LRU</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	
+	<style>
+		body {
+		  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+		  padding: 100px;
+		  font-size: 20px;
+		}
+	</style>
+
+<body class="is-preload">
+	<!-- Wrapper -->
+		<div id="wrapper">
+
+			<!-- Header -->
+				<header id="header">
+					<div class="inner">
+
+						<!-- Logo -->
+							<a href="index.html" class="logo">
+								<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Page Replacement Algorithms</span>
+							</a>
+
+						<!-- Nav -->
+							<nav>
+								<ul>
+									<li><a href="#menu">Menu</a></li>
+								</ul>
+							</nav>
+
+					</div>
+				</header>
+
+			<!-- Menu -->
+				<nav id="menu">
+					<h2>Menu</h2>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="fifo.html">FIFO</a></li>
+						<li><a href="lru.html">LRU</a></li>
+						<li><a href="optimal.html">Optimal</a></li>
+					</ul>
+				</nav>
+
+			<!-- Main -->
+				<div id="main">
+					<div class="inner">
+						<h1>LRU</h1>
+            <p>Least Recently Used (LRU) algorithm is a page replacement technique used for memory management. According to this method, the page which is least recently used is replaced. Therefore, in memory, any page that has been unused for a longer period of time than the others is replaced.</p>
+
+            <p>This idea is somewhat based on locality of reference, that any page that has been unused for a great amount of time is more likely to remain unused. Therefore, it is better to replace that page. </p>
+					</div>
+				</div>
+
+		</div>
+
+	<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+</body>
+	  <body>
+		<h2 style="text-align: center;">Simulator</h2>
+	  
+		  <label for="no_of_frames">Number of frames </label>
+		  <input type="text" id="no_of_frames" name="no_of_frames"><br><br>
+	  
+		  <label for="no_of_pages">Number of pages </label>
+		  <input type="text" id="no_of_pages" name="no_of_pages"><br><br>
+	  
+		  <label for="pageString">Page reference string </label>
+		  <input type="text" id="pageString" name="pageString"><br><br>
+	  
+		  <button value="Go" onclick="createTable(); lru()" name="Go"> Go! </button> <br><br>
+	  
+		  <table id="output">
+			<thead>
+			<tr style="text-align: center; background-color: #D7E5F0;">
+			  <th style="width: 200px;">Page</th>     
+			  <th id="f" style="width: 200px;">Frames</th>
+			  <th style="width: 200px;">Result</th>
+			</tr>
+		  </thead>  
+			<tbody>
+			</tbody>
+		  </table>
+	   
+	  <p id="result"></p>
+	  </body>    
+	 
+
+
+</html>
+  
+<script>
+
+  function createTable()
+  {
+    var frames = document.getElementById('no_of_frames').value;
+    document.getElementById("f").colSpan = frames.toString();
+  }
+  
+  function lru()
+  {
+    var tableLength = document.getElementById("output").getElementsByTagName('tbody')[0].rows.length; 
+  
+    if(tableLength > 1)
+    {   
+      var bodyRef = document.getElementById("output").getElementsByTagName('tbody')[0];
+      bodyRef.innerHTML = '';
+    }
+  
+    var frames = document.getElementById('no_of_frames').value;
+    var pages = document.getElementById('no_of_pages').value;
+    var pageString = document.getElementById('pageString').value;
+    var occupied = new Array(frames);
+    var currentIndex = -1, fifoIndex = -1;
+    //init occupied
+  
+    frames = parseInt(frames);
+    pages = parseInt(pages);
+    for(var i=0; i<frames; i++)
+    {
+      occupied[i] = -1;
+    }
+  
+    var hitMissCell;
+    var hit = 0;
+    for(var i=0; i<pages; i++)
+    {
+      //check if hit
+      hitMissCell = 0;
+      var flag = 0;
+      for(var j=0; j<currentIndex + 1; j++)
+      {
+        if(occupied[j] === parseInt(pageString[2*i]))
+        {
+          flag = 1;
+          break;
+        }
+      }
+  
+      if(flag)
+      {
+         hit += 1;
+        hitMissCell = 1;
+      }
+      else if(currentIndex === frames - 1)
+      {
+        var useTimes = new Array(frames);
+  
+        for(var j=0; j<frames; j++)
+            useTimes[j] = -1;
+   
+        for(var j=0; j<frames; j++)
+        {
+           for(var k=0; k<i; k++)
+           {
+             if(parseInt(pageString[2*k]) === occupied[j])
+             {
+               if(k > useTimes[j])
+               {
+                 useTimes[j] = k; //index at which it is used
+               }
+             }
+           }
+        }
+  
+        //find lru
+        var lruIndex = 0;
+        for(var j=1; j<frames; j++)
+        { 
+          if(useTimes[j] < useTimes[lruIndex])
+            lruIndex = j;
+        }
+   
+        occupied[lruIndex] = parseInt(pageString[2*i]);
+      }
+      else
+      {
+        currentIndex += 1;
+        occupied[currentIndex] = parseInt(pageString[2*i]);
+      }
+
+       var table = document.getElementById("output").getElementsByTagName('tbody')[0];
+      var row = table.insertRow();
+  
+      var c0 = document.createElement('td');
+      c0.style.width = '50px';
+      c0.innerHTML = pageString[2*i];
+     row.append(c0);
+  
+     for(var j=0; j<frames; j++)
+     {
+       var c0 = document.createElement('td');
+       c0.style.width = '50px';
+       if(j <= currentIndex)
+         c0.innerHTML = occupied[j];
+       row.appendChild(c0);
+     }
+  
+     var c0 = document.createElement('td');
+     c0.style.width = '50px';
+  
+     if(hitMissCell)
+     {
+       c0.innerHTML = "Hit";
+       row.style.backgroundColor = "#A6ECA8";
+     }
+     else
+       c0.innerHTML = "Fault";
+  row.appendChild(c0);
+  }
+  
+  document.getElementById("result").innerHTML = "Number of hits = " + hit;
+  }
+  </script>

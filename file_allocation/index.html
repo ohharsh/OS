@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>File Allocation</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body,h1,h2,h3,h4,h5,h6 {
+      font-family: "Lato", sans-serif
+    }
+
+    .w3-bar,h1,button {
+      font-family: "Montserrat", sans-serif
+    }
+
+    .fa-anchor,.fa-coffee {
+      font-size: 200px
+    }
+    a {
+  text-decoration: none;
+   }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <div class="w3-top">
+    <div class="w3-bar w3-red w3-card w3-left-align w3-large ">
+      <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red"
+        href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+
+      <a href="../HomePage/homepage.html" class="w3-bar-item w3-button w3-padding-small w3-white" >
+        <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="25"
+        height="25"
+        fill="currentColor"
+        class="bi bi-arrow-left"
+        viewBox="0 0 16 16"
+        >
+        <path
+          fill-rule="evenodd"
+          d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
+        />
+        </svg>
+         </a>
+      <a href="#home" class="w3-bar-item w3-button w3-padding-large w3-white" style="margin: 0">Home</a>
+      <a href="#section1" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Contiguous
+        Allocation</a>
+      <a href="#section2" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Linked
+        allocation</a>
+      <a href="#section3" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Indexed
+        allocation</a>
+    </div>
+
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+      <a href="#home" class="w3-bar-item w3-button w3-padding-large">home</a>
+      <a href="#section1" class="w3-bar-item w3-button w3-padding-large">Contiguous Allocation</a>
+      <a href="#section2" class="w3-bar-item w3-button w3-padding-large">Linked allocation</a>
+      <a href="#section3" class="w3-bar-item w3-button w3-padding-large">Indexed allocation</a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="w3-container w3-red w3-center" style="padding:128px 16px">
+    <h1 class="w3-margin w3-jumbo">FILE ALLOCATION METHODS</h1>
+    <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top"><a href="#section0">Get
+        Started</a></button>
+  </header>
+
+  <!-- First Grid -->
+  <div class="intro" id="section0">
+    <div class="w3-row-padding w3-padding-64 w3-container">
+      <div class="w3-content">
+        <div class="w3-twothird">
+
+          <p>There are various methods which can be used to allocate disk space to the files. Selection of an
+            appropriate
+            allocation method will significantly affect the performance and efficiency of the system. Allocation method
+            provides a way in which the disk will be utilized and the files will be accessed.</p>
+          <br>
+          <h3>There are three main disk space or file allocation methods.</h3>
+          <ol>
+            <li>Contiguous Allocation</li>
+            <li>Linked Allocation</li>
+            <li>Indexed Allocation</li>
+          </ol> <br>
+          <p>The main idea behind these methods is to provide:</p>
+          <ul>
+            <li>Efficient disk space utilization.</li>
+            <li>Fast access to the file blocks.</li>
+          </ul>
+          <br>
+        </div>
+
+        <div class="w3-third w3-center">
+          <i class="w3-padding-64 w3-text-red"><img src="images/images.jpg" alt="image"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Second Grid -->
+  <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container" id="section1">
+    <div class="w3-third w3-center">
+      <div class="w3-padding-64 w3-margin-right"><img width="300px" heigh="300px"
+          src="images/Contiguous-Allocation.jpg"></div>
+    </div>
+    <div class="w3-content">
+
+
+      <div class="w3-twothird">
+        <div class="section one">
+          <h1>1.Contiguous Allocation</h1>
+          <p class="wrap">In this allocation method, each file occupies a contiguous set of blocks on the disk. For
+            example, if a
+            file requires n
+            blocks and is given a block b as the starting location, then the blocks assigned to the file will be: b,
+            b+1, b+2,……b+n-1..The directory entry for a file with
+            contiguous allocation contains Address of starting block and Length of the allocated portion.</p>
+          <h4>Advantages:</h4>
+          <ul>
+            <li>Both the Sequential and Direct Accesses are supported by this.</li>
+            <li>This is extremely fast since the number of seeks are minimal because of contiguous allocation of
+              file blocks.</li>
+          </ul>
+          <h4>Disadvantages:</h4>
+          <ul>
+            <li>This method suffers from both internal and external fragmentation.</li>
+            <li>Increasing file size is difficult because it depends on the availability of contiguous memory at a
+              particular instance.</li>
+          </ul>
+          <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top"><a
+              href="file-allocation/sequential.html">Simulator 1</a></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container" id="section2">
+    <div class="w3-third w3-center">
+      <div class="w3-padding-64 w3-margin-right"><img width="300px" heigh="300px" src="images/linkedListAllocation.jpg">
+      </div>
+    </div>
+    <div class="w3-content">
+      <div class="w3-twothird">
+        <div class="section two">
+          <h1>2.Linked Allocation</h1>
+          <p class="wrap">In this allocation method,each file is a linked list of disk blocks which need not be
+            contiguous. The
+            disk blocks can
+            be scattered anywhere on the disk.
+            The directory entry contains a pointer to the starting and the ending file block. Each block contains a
+            pointer to the next block occupied by the file.</p>
+          <br>
+          <h4>Advantages:</h4>
+          <ul>
+            <li>This is very flexible in terms of file size. File size can be increased easily.</li>
+            <li>This method does not suffer from external fragmention.</li>
+          </ul>
+        </div>
+        <h4>Disadvantages:</h4>
+        <ul>
+          <li>A large number of seeks are needed to
+            access every block individually. This makes linked allocation slower.</li>
+          <li>It does not support random or direct access.</li>
+        </ul>
+        <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top"><a
+            href="file-allocation/linked.html">Simulator 2</a></button>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container" id="section3">
+    <div class="w3-third w3-center">
+      <div class="w3-padding-64 w3-margin-right"><img width="300px" heigh="300px" src="images/indexedAllocation.jpg">
+      </div>
+    </div>
+    <div class="w3-content">
+      <div class="w3-twothird">
+        <div class="section three">
+          <h1>3.Indexed Allocation</h1>
+          In this allocation method, a special block known as the <b>Index block</b> contains the pointers to all the
+          blocks
+          occupied
+          by a file. Each file has its own index block. The directory entry contains the address of the index block as
+          shown in the image:
+          <br>
+        </div>
+        <h4>Advantages:</h4>
+        <ul>
+          <li>This supports direct access to the blocks occupied by the file and therefore provides fast access to
+            the
+            file blocks.
+          </li>
+          <li>It overcomes the problem of external fragmentation.</li>
+        </ul>
+        <h4>Disadvantages:</h4>
+        <ul>
+          <li>For very small files,storing pointers index block would lead inefficient in terms of memory utilization.
+          </li>
+          <li>For files that are very large, single index block may not be able to hold all the pointers.</li>
+        </ul>
+        <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top"><a
+            href="file-allocation/indexed.html">Simulator 3</a></button>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+
+
+  <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+  </div>
+
+
+  <script>
+    // Used to toggle the menu on small screens when clicking on the menu button
+    function myFunction() {
+      var x = document.getElementById("navDemo");
+      if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+      } else {
+        x.className = x.className.replace(" w3-show", "");
+      }
+    }
+  </script>
+
+</body>
+
+</html>

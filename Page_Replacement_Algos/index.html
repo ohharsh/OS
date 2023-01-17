@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Page Replacement</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<div class="section" id="header">
+			<div id="backbutton">
+			  <a href="../HomePage/homepage.html">
+				<button
+				  type="button"
+				  class="btn btn-primary"
+				  style="
+					margin: 0 36px;
+					position: absolute;
+					top: 2rem;
+					left: 0rem;
+					padding: 5px 25px;
+					background-color: #dde6ea;
+				  "
+				>
+				  <svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="25"
+					height="25"
+					fill="currentColor"
+					class="bi bi-arrow-left"
+					viewBox="0 0 16 16"
+				  >
+					<path
+					  fill-rule="evenodd"
+					  d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
+					/>
+				  </svg>
+				</button>
+			  </a>
+			</div>
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="index.html" class="logo">
+									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Page Replacement Algorithms</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="fifo.html">FIFO Algorithm</a></li>
+							<li><a href="lru.html">LRU Algorithm</a></li>
+							<li><a href="optimal.html">Optimal Algorithm</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							
+							<header>
+								<p>Page Replacement Algorithms decide which memory page is to be replaced. The process of replacement is sometimes called swap out or write to disk. Page replacement is done when the requested page is not found in the main memory (page fault). </p>
+							</header> 
+							<section class="tiles">
+								<article class="style1">
+									<span class="image">
+										<img src="images/pic01.jpg" alt="" />
+									</span>
+									<a href="fifo.html">
+										<h2>FIFO</h2>
+										<div class="content">
+											<p>First In, First Out page replacement algorithm</p>
+										</div>
+									</a>
+								</article>
+								<article class="style2">
+									<span class="image">
+										<img src="images/pic02.jpg" alt="" />
+									</span>
+									<a href="lru.html">
+										<h2>LRU</h2>
+										<div class="content">
+											<p>Least Recently Used page replacement algorithm</p>
+										</div>
+									</a>
+								</article>
+								<article class="style3">
+									<span class="image">
+										<img src="images/pic03.jpg" alt="" />
+									</span>
+									<a href="optimal.html">
+										<h2>Optimal</h2>
+										<div class="content">
+											<p>A theoretical page replacement algorithm</p>
+										</div>
+									</a>
+								</article>
+							</section>
+						</div>
+					</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

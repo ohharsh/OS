@@ -1,0 +1,201 @@
+* {
+  box-sizing: border-box;
+}
+h2 {
+  color: #198754;
+}
+.container-flex {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 1em;
+  max-width: 1200px;
+  margin: auto;
+  align-items: stretch;
+}
+.field {
+  position: relative;
+  padding: 0.5em;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  min-width: 50%;
+  justify-content: center;
+}
+.seq {
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+label {
+  position: relative;
+}
+.field label {
+  display: block;
+  padding: 0.5em;
+  width: 13em;
+  height: 4em;
+}
+.field span {
+  font-size: 1rem;
+  font-family: serif;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 1.8em;
+  left: 1em;
+  opacity: 0.5;
+  transition: all 0.2s ease;
+}
+input[type="number"] {
+  border: 0;
+  display: inline-block;
+  width: 12em;
+  height: 3.5em;
+  margin: 0;
+  padding: 0.5em;
+  padding-bottom: 0;
+  font-size: 1rem;
+  font-family: serif;
+  background-color: #eee;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid #888;
+}
+input[type="number"]:not(:placeholder-shown) ~ span, input[type="number"]:focus ~ span {
+  top: 0.5rem;
+  left: 1rem;
+  font-size: 0.8em;
+}
+input[type="number"]:not(:placeholder-shown), input[type="number"]:focus {
+  border-bottom-width: 2px;
+}
+input:focus, input:hover {
+  border-color: #000;
+}
+input:focus ~ span {
+  opacity: 1;
+}
+input:hover, input:focus {
+  background-color: #ccc;
+}
+input.valid {
+  border-color: #198754;
+}
+input.invalid {
+  border-color: #dc3545;
+  outline: 1px solid #dc3545;
+}
+div.seq {
+  display: flex;
+  align-items: center;
+  padding: 0.5em;
+}
+.box {
+  width: 5em;
+  margin: 0.5em;
+}
+.box input {
+  width: 5em;
+}
+.btn-add {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  padding: 0.3rem;
+  margin: 0.3rem;
+  cursor: pointer;
+  background-color: #6c757d;
+  border-radius: 0.2rem;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1em;
+}
+label.box i {
+  display: inline-block;
+  border: 0;
+  position: absolute;
+  top: -0.3em;
+  right: -0.3em;
+  width: 1em;
+  height: 1em;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-x-circle' viewBox='0 0 16 16'%3E%3Cpath d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z'/%3E%3Cpath d='M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+  cursor: pointer;
+  border-radius: 0.5em;
+}
+input[name="algo"] {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+.algo label {
+  padding: .3em .6em;
+  margin: 0.5rem;
+  border-radius: 50rem;
+  display: inline-block;
+  font-weight: 700;
+  color: #198754;
+  border: 1px solid #198754;
+  text-align: center;
+  cursor: pointer;
+}
+.algo input:checked ~ label {
+  color: #fff;
+  background-color: #198754;
+}
+button.clear, button.submit {
+  font-weight: 600;
+  font-family: serif;
+  display: inline-block;
+  line-height: 1.5;
+  border: 1px solid #000;
+  font-size: 1rem;
+  padding: 0.4rem 0.8rem;
+  margin: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 0.3rem;
+}
+button.clear {
+  color: #198754;
+  border-color: #198754;
+  background-color: transparent;
+}
+button.clear:hover, button.submit {
+  color: #fff;
+  background-color: #198754;
+  border-color: #198754;
+}
+button.submit:hover {
+  background-color: #157347;
+}
+button.clear:focus, button.submit:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem #19875455;
+}
+#output {
+  padding: 1em;
+}
+.chart {
+  margin: 1em;
+  padding: 0.5em;
+}
+.chart span.credits {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  text-align: right;
+  vertical-align: bottom;
+}
+.credits.hidden {
+  display: none;
+}
+.credits a {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-image: url("./logo.svg");
+  background-size: cover;
+  
+}

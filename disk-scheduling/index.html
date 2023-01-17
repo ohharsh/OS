@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<script type="text/javascript" src="script.js" defer></script>
+	<script type="text/javascript" src="chart.js"></script>
+</head>
+<body>
+	<div class="container-flex">
+		<div class="row algo">
+			<span><input type="radio" name="algo" value="FCFS" id="fcfs" checked /><label for="fcfs">FCFS</label></span>
+			<span><input type="radio" name="algo" value="SCAN" id="scan" /><label for="scan">SCAN</label></span>
+			<span><input type="radio" name="algo" value="C-SCAN" id="cscan" /><label for="cscan">C-SCAN</label></span>
+		</div>
+		<div class="field row">
+			<label>
+				<input type="number" placeholder="">
+				<span>Range:</span>
+			</label>
+			<label>
+				<input type="number" placeholder="">
+				<span>Initial block:</span>
+			</label>
+		</div>
+		<div class="seq row">
+			<label class="box"><input type="number" /><i></i></label>
+			<button class="btn-add">+</button>
+		</div>
+		<div class="row"><button type="button" class="submit">Run</button><button type="button" class="clear">Clear</button></div>
+		<div>
+			<h2>Output:</h2>
+			<div id="output"></div>
+			<div class="chart">
+				<canvas>Chart not supported by your browser</canvas>
+				<span class="credits hidden">Made using <a href="https://chartjs.org/" target="_blank"></a></span>
+			</div>
+		</div>
+	</div>
+</body>

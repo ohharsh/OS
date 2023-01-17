@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memory Management</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../Index/css/bootswatch.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.6/fullpage.min.css"
+      integrity="sha512-s+AVc8nCwxyMbLdydJ5BVLf6M9KxTL5g271B07VbqqyzO0hODSStcAV2dJDDrG1Rw627pAnY3hbhsuaF8CLYrg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      body {
+        font-family: Georgia, "Times New Roman", Times, serif;
+      }
+      #header {
+        background: url("bg.webp") no-repeat;
+        background-size: cover;
+        text-align: center;
+        font-size: 7rem;
+        text-shadow: 0 0 5px black;
+        color: white;
+      }
+      .s1 {
+        background-color: #055499;
+        z-index: -1;
+      }
+      #title {
+        font-size: 3rem;
+        text-shadow: 0 0 4px black;
+        color: white;
+        text-align: center;
+      }
+      #info {
+        font-size: 1.3rem;
+        max-width: 60%;
+        margin: 3rem auto;
+        color: white;
+        line-height: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="fullpage">
+      <div class="section" id="header">
+        <div id="backbutton">
+          <a href="../../HomePage/homepage.html">
+            <button
+              type="button"
+              class="btn btn-primary"
+              style="
+                margin: 0 36px;
+                position: absolute;
+                top: 2rem;
+                left: 0rem;
+                padding: 5px 25px;
+                background-color: rgb(88, 102, 228);
+              "
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="25"
+                height="25"
+                fill="currentColor"
+                class="bi bi-arrow-left"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
+                />
+              </svg>
+            </button>
+          </a>
+        </div>
+        Memory Management
+      </div>
+      <div class="section s1">
+        <div class="slide">
+          <div id="title">MFT</div>
+          <div id="info">
+            MFT (Multiprogramming with a Fixed number of Tasks) is one of the
+            old memory management techniques in which the memory is partitioned
+            into fixed size partitions and each job is assigned to a partition.
+            The memory assigned to a partition does not change.
+          </div>
+        </div>
+        <div class="slide">
+          <div id="title">MVT</div>
+          <div id="info">
+            MVT (Multiprogramming with a Variable number of Tasks) is the memory
+            management technique in which each job gets just the amount of
+            memory it needs. That is, the partitioning of memory is dynamic and
+            changes as jobs enter and leave the system. MVT is a more
+            "efficient" user of resources. MFT suffers with the problem of
+            internal fragmentation and MVT suffers with external fragmentation.
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div
+          class="cont"
+          style="
+            height: 100%;
+            background-color: #055499;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          "
+        >
+          <a href="../MFT/index.html">
+            <button
+              type="button"
+              class="btn btn-primary"
+              style="
+                margin: 0 36px;
+                padding: 5px 25px;
+                height: 60px;
+                width: 100px;
+              "
+            >
+              MFT
+            </button>
+          </a>
+          <a href="../MVT/index.html">
+            <button
+              type="button"
+              class="btn btn-primary"
+              style="
+                margin: 0 36px;
+                padding: 5px 25px;
+                height: 60px;
+                width: 100px;
+              "
+            >
+              MVT
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.6/fullpage.min.js"
+      integrity="sha512-vjwl0AxwZ7l1S3ACSrgSMF6PEoDGz99WkZwGasqax6g5K1SQ5BznyqoHxZ01RF7pxShcXZ9WedS2+bkHC8uovw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      new fullpage("#fullpage", {});
+    </script>
+  </body>
+</html>
